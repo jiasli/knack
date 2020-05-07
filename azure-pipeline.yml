@@ -53,6 +53,8 @@ jobs:
           env
           echo '$BUILD_REPOSITORY_URI: ' $BUILD_REPOSITORY_URI
           echo '$(Build.Repository.Uri): ' $(Build.Repository.Uri)
+          echo '$(Build.Repository.Name): ' $(Build.Repository.Name)
+          echo '$(System.PullRequest.TargetBranch): ' $(System.PullRequest.TargetBranch)
 
           : "${BUILD_STAGINGDIRECTORY:?BUILD_STAGINGDIRECTORY environment variable not set}"
           : "${BUILD_SOURCESDIRECTORY:=$(cd $(dirname $0); cd ../../; pwd)}"
