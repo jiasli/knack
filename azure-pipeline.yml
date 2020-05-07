@@ -51,6 +51,8 @@ jobs:
           set -ev
 
           env
+          echo '$BUILD_REPOSITORY_URI: ' $BUILD_REPOSITORY_URI
+          echo '$(Build.Repository.Uri): ' $(Build.Repository.Uri)
 
           : "${BUILD_STAGINGDIRECTORY:?BUILD_STAGINGDIRECTORY environment variable not set}"
           : "${BUILD_SOURCESDIRECTORY:=$(cd $(dirname $0); cd ../../; pwd)}"
