@@ -25,7 +25,7 @@ style = {
     'preview': '\x1b[36m',  # Foreground Cyan
     'experimental': '\x1b[36m',  # Foreground Cyan
     'deprecation': '\x1b[33m',   # Foreground Yellow
-    'critical': '\x1b[91m',  # Bright Foreground Red
+    'critical': '\x1b[41m',  # Background Red
     'error': '\x1b[91m',  # Bright Foreground Red
     'warning': '\x1b[33m',  # Foreground Yellow
     'info': '\x1b[32m',  # Foreground Green
