@@ -7,7 +7,7 @@ import os
 import logging
 from enum import IntEnum
 
-from .util import CtxTypeError, ensure_dir, CLIError
+from .util import CtxTypeError, ensure_dir, CLIError, style
 from .events import EVENT_PARSER_GLOBAL_CREATE
 
 
@@ -53,15 +53,15 @@ class _CustomStreamHandler(logging.StreamHandler):
 
             def _color_wrapper(color_marker):
                 def wrap_msg_with_color(msg):
-                    return '{}{}{}'.format(color_marker, msg, colorama.Style.RESET_ALL)
+                    return '{}{}{}'.format(color_marker, msg, style['reset'])
                 return wrap_msg_with_color
 
             cls.COLOR_MAP = {
-                logging.CRITICAL: _color_wrapper(colorama.Fore.LIGHTRED_EX),
-                logging.ERROR: _color_wrapper(colorama.Fore.LIGHTRED_EX),
-                logging.WARNING: _color_wrapper(colorama.Fore.YELLOW),
-                logging.INFO: _color_wrapper(colorama.Fore.GREEN),
-                logging.DEBUG: _color_wrapper(colorama.Fore.CYAN)
+                logging.CRITICAL: _color_wrapper(style['critical']),
+                logging.ERROR: _color_wrapper(style['error']),
+                logging.WARNING: _color_wrapper(style['warning']),
+                logging.INFO: _color_wrapper(style['info']),
+                logging.DEBUG: _color_wrapper(style['debug'])
             }
 
         return cls.COLOR_MAP.get(level, None)
