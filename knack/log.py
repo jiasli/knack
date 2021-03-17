@@ -7,7 +7,7 @@ import os
 import logging
 from enum import IntEnum
 
-from .util import CtxTypeError, ensure_dir, CLIError, style
+from .util import CtxTypeError, ensure_dir, CLIError, color_map
 from .events import EVENT_PARSER_GLOBAL_CREATE
 
 
@@ -47,8 +47,8 @@ class _CustomStreamHandler(logging.StreamHandler):
 
     @classmethod
     def wrap_with_color(cls, level_name, msg):
-        color_marker = style[level_name.lower()]
-        return '{}{}{}'.format(color_marker, msg, style['reset'])
+        color_marker = color_map[level_name.lower()]
+        return '{}{}{}'.format(color_marker, msg, color_map['reset'])
 
     def __init__(self, log_level_config, log_format, enable_color):
         logging.StreamHandler.__init__(self)

@@ -20,7 +20,7 @@ status_tag_messages = {
 }
 
 # https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
-style = {
+color_map = {
     'reset': '\x1b[0m',  # Default
     'preview': '\x1b[36m',  # Foreground Cyan
     'experimental': '\x1b[36m',  # Foreground Cyan
@@ -72,7 +72,7 @@ class ColorizedString(object):
         import colorama
         if not self._color:
             return self._message
-        return self._color + self._message + style['reset']
+        return self._color + self._message + color_map['reset']
 
 
 class StatusTag(object):

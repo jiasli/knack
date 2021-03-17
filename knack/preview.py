@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from .util import StatusTag, status_tag_messages, style
+from .util import StatusTag, status_tag_messages, color_map
 
 _PREVIEW_TAG = '[Preview]'
 _preview_kwarg = 'preview_info'
@@ -57,7 +57,7 @@ class PreviewItem(StatusTag):
             cli_ctx=cli_ctx,
             object_type=object_type,
             target=target,
-            color=style[_config_key],
+            color=color_map[_config_key],
             tag_func=tag_func or (lambda _: _PREVIEW_TAG),
             message_func=message_func or _default_get_message
         )
