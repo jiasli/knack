@@ -61,7 +61,6 @@ class CtxTypeError(TypeError):
 class ColorizedString(object):
 
     def __init__(self, message, color):
-        import colorama
         self._message = message
         self._color = color
 
@@ -69,7 +68,6 @@ class ColorizedString(object):
         return len(self._message)
 
     def __str__(self):
-        import colorama
         if not self._color:
             return self._message
         return self._color + self._message + color_map['reset']
