@@ -183,7 +183,7 @@ class CLILogging:  # pylint: disable=too-many-instance-attributes
         log_file_path = os.path.join(self.log_dir, self.logfile_name)
         from logging.handlers import RotatingFileHandler
         logfile_handler = RotatingFileHandler(log_file_path, maxBytes=10 * 1024 * 1024, backupCount=5)
-        lfmt = logging.Formatter('%(process)d : %(asctime)s : %(levelname)s : %(name)s : %(message)s')
+        lfmt = logging.Formatter('%(process)d: %(asctime)s: %(levelname)s: %(name)s: %(message)s')
         logfile_handler.setFormatter(lfmt)
         logfile_handler.setLevel(logging.DEBUG)
         root_logger.addHandler(logfile_handler)
